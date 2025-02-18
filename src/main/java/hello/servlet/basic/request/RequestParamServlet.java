@@ -16,8 +16,10 @@ import java.util.Enumeration;
 public class RequestParamServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//application/x-www-form-urlencoded 형식은 쿼리 파라미터 형식과 같다
+// 그래서 쿼리 파라미터 조회 메서드를 그대로 사용 하면 됨
         System.out.println("[전체 파라미터 조회] - start");
-       request.getParameterNames().asIterator()//모든 요청 파라미터를 꺼낼 수 있음
+        request.getParameterNames().asIterator()//모든 요청 파라미터를 꺼낼 수 있음
                .forEachRemaining(paramName -> System.out.println(paramName + "=" + request.getParameter(paramName)));
         System.out.println("[전체 파라미터 조회] - end");
         System.out.println();
